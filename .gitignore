@@ -3,3 +3,6 @@ venv/
 tokens.env 
 __pycache__/ 
 faiss_index_cencosud/ 
+env/
+__pycache__/
+*.pyc
