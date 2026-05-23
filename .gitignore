@@ -1,8 +1,13 @@
-venv/ 
-.env 
-tokens.env 
-__pycache__/ 
-faiss_index_cencosud/ 
-env/
+# Entornos virtuales y dependencias
+venv/
 __pycache__/
+
+# Archivos de configuración con secretos
+.env
+
+# Bases de datos vectoriales (se regeneran con ingesta.py)
+faiss_index_cencosud/
+
+# Archivos temporales de sistema
+.DS_Store
 *.pyc
