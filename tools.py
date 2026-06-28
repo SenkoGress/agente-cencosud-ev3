@@ -41,3 +41,34 @@ def buscar_politicas_cencosud(consulta: str) -> str:
 
     except Exception as e:
         return f"Error crítico al acceder a la base de datos: {str(e)}. Verifica que faiss_index_cencosud exista."
+
+# --- NUEVAS HERRAMIENTAS PARA CUMPLIR CON EL IE1 ---
+
+@tool("evaluar_normativa")
+def evaluar_normativa(consulta_usuario: str) -> str:
+    """
+    Evalúa si la consulta del empleado cumple o viola la normativa de privacidad de Cencosud.
+    Útil para que el analista senior razone y valide la viabilidad de la pregunta antes de investigar.
+    """
+    consulta_lower = consulta_usuario.lower()
+    # Validación lógica para proteger datos sensibles (Ley 19.628)
+    if "sueldo" in consulta_lower or "liquidación" in consulta_lower or "remuneración" in consulta_lower or "bono" in consulta_lower:
+        return "Evaluación de Riesgo: Alerta de Privacidad. La consulta involucra datos sensibles de remuneración. El agente debe indicar que por políticas de seguridad debe consultar el portal 'Mi Cencosud'."
+    else:
+        return "Evaluación de Riesgo: Aprobada. La consulta es viable y no viola leyes de privacidad. Procede a buscar en las políticas."
+
+@tool("generar_comunicado")
+def generar_comunicado(informacion_procesada: str) -> str:
+    """
+    Formatea la información investigada en un comunicado corporativo oficial de RRHH.
+    Útil para el especialista en comunicaciones al redactar la respuesta final.
+    """
+    comunicado_oficial = (
+        "Estimado colaborador de Cencosud,\n\n"
+        "Junto con saludar, y en respuesta a su consulta, le informamos lo siguiente:\n\n"
+        f"{informacion_procesada}\n\n"
+        "Ante cualquier duda adicional, le recordamos que puede consultar directamente a su jefe de local o mediante el portal oficial 'Mi Cencosud'.\n\n"
+        "Atentamente,\n"
+        "Gerencia de Recursos Humanos."
+    )
+    return comunicado_oficial

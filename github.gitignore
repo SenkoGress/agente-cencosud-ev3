@@ -1,0 +1,4 @@
+.env
+venv/
+__pycache__/
+trazabilidad_cencosud.log
