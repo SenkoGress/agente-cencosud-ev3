@@ -24,3 +24,17 @@ La solución está construida sobre el framework CrewAI, implementando un flujo 
    ```bash
    git clone [https://github.com/SenkoGress/agente-cencosud-ev2.git](https://github.com/SenkoGress/agente-cencosud-ev2.git)
    cd agente-cencosud-ev2
+
+   # Asistente de Recursos Humanos Cencosud - Observabilidad y Trazabilidad
+
+Este proyecto implementa un agente de IA para consultas internas de RRHH con métricas de rendimiento y observabilidad integradas.
+
+## Configuración
+1. Clonar el repositorio.
+2. Crear un entorno virtual: `python -m venv venv`
+3. Instalar dependencias: `pip install -r requirements.txt`
+4. Crear un archivo `.env` basado en `.env.example` y completar las credenciales.
+
+## Ejecución
+- Para iniciar el asistente: `python app.py`
+- Para visualizar el dashboard de observabilidad: `streamlit run dashboard.py`
