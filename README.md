@@ -1,40 +1,66 @@
-# Sistema de Orquestación y Soporte Corporativo - Cencosud
+Sistema de Orquestación y Soporte Corporativo - Cencosud (EV3)
+Este repositorio contiene la implementación de un sistema de orquestación jerárquica diseñado para automatizar y gestionar las consultas de los colaboradores sobre las normativas y reglamentos internos de Cencosud.
 
-Este repositorio contiene la implementación de un sistema de orquestación jerárquica diseñado para automatizar y gestionar las consultas de los colaboradores sobre las normativas y reglamentos internos de Cencosud. 
+El sistema utiliza una arquitectura basada en agentes de software especializados y procesamiento de lenguaje natural para recuperar información documental y asegurar respuestas precisas y apegadas a la legalidad de la empresa. Además, cuenta con métricas de rendimiento, observabilidad y trazabilidad integradas.
 
-El sistema utiliza una arquitectura basada en agentes de software especializados y procesamiento de lenguaje natural para recuperar información documental y asegurar respuestas precisas y apegadas a la legalidad de la empresa.
+Arquitectura del Sistema
+La solución está construida sobre el framework CrewAI, implementando un flujo de tipo Process.hierarchical para garantizar la correcta toma de decisiones y delegación de tareas automatizadas.
 
-## Arquitectura del Sistema
+Gerente de Recursos Humanos (Manager): Actúa como orquestador del sistema. Recibe la consulta del usuario, evalúa los requerimientos y delega las tareas de búsqueda y redacción a los subprocesos correspondientes.
 
-La solución está construida sobre el framework CrewAI, implementando un flujo de tipo `Process.hierarchical` para garantizar la correcta toma de decisiones y delegación de tareas automatizadas.
+Analista Senior de Políticas Internas: Módulo técnico encargado de la recuperación de información. Utiliza herramientas de búsqueda semántica (FAISS) para extraer fragmentos exactos de los reglamentos internos preprocesados.
 
-1. **Gerente de Recursos Humanos (Manager):** Actúa como orquestador del sistema. Recibe la consulta del usuario, evalúa los requerimientos y delega las tareas de búsqueda y redacción a los subprocesos correspondientes. No ejecuta búsquedas en bases de datos por sí mismo.
-2. **Analista Senior de Políticas Internas:** Módulo técnico encargado de la recuperación de información. Utiliza herramientas de búsqueda semántica (FAISS) para extraer fragmentos exactos de los reglamentos internos preprocesados.
-3. **Especialista en Comunicaciones Internas:** Módulo responsable del formato de salida. Genera respuestas estructuradas, claras y que cumplen con las directrices de comunicación corporativa.
+Especialista en Comunicaciones Internas: Módulo responsable del formato de salida. Genera respuestas estructuradas, claras y que cumplen con las directrices de comunicación corporativa.
 
-## Requisitos Previos
+Requisitos Previos
+Python 3.10 o superior.
 
-- Python 3.10 o superior.
-- Git.
-- Token de acceso (Fine-grained) con permisos de ejecución en repositorios y modelos.
+Git.
 
-## Instalación y Configuración
+Token de acceso (Fine-grained) con permisos de ejecución en repositorios y modelos.
 
-1. **Clonar el repositorio:**
-   ```bash
-   git clone [https://github.com/SenkoGress/agente-cencosud-ev2.git](https://github.com/SenkoGress/agente-cencosud-ev2.git)
-   cd agente-cencosud-ev2
+Instalación y Configuración
+Clonar el repositorio:
 
-   # Asistente de Recursos Humanos Cencosud - Observabilidad y Trazabilidad
+Bash
+git clone https://github.com/SenkoGress/agente-cencosud-ev3.git
+cd agente-cencosud-ev3
+Configurar el entorno:
 
-Este proyecto implementa un agente de IA para consultas internas de RRHH con métricas de rendimiento y observabilidad integradas.
+Crear un entorno virtual:
 
-## Configuración
-1. Clonar el repositorio.
-2. Crear un entorno virtual: `python -m venv venv`
-3. Instalar dependencias: `pip install -r requirements.txt`
-4. Crear un archivo `.env` basado en `.env.example` y completar las credenciales.
+Windows: python -m venv venv
 
-## Ejecución
-- Para iniciar el asistente: `python app.py`
-- Para visualizar el dashboard de observabilidad: `streamlit run dashboard.py`
+Linux/Mac: python3 -m venv venv
+
+Activar el entorno virtual:
+
+Windows: venv\Scripts\activate
+
+Linux/Mac: source venv/bin/activate
+
+Instalar dependencias:
+
+Bash
+pip install -r requirements.txt
+Configurar credenciales:
+
+Crea el archivo de configuración a partir de la plantilla:
+
+Windows: copy .env.example .env
+
+Linux/Mac: cp .env.example .env
+
+Abre el archivo .env recién creado con tu editor favorito y completa los valores requeridos (OPENAI_API_KEY, GITHUB_TOKEN, etc.).
+
+Ejecución
+Para iniciar el asistente:
+
+Bash
+python app.py
+(Escribe 'salir' en la terminal para finalizar la sesión).
+
+Para visualizar el dashboard de observabilidad:
+
+Bash
+streamlit run dashboard.py
