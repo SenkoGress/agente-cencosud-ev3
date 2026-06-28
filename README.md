@@ -30,40 +30,40 @@ cd agente-cencosud-ev3
 ```
 Configurar el entorno:
 
-Crear un entorno virtual:
+**Crear un entorno virtual:**
 
-Windows: python -m venv venv
+- Windows: python -m venv venv
 
-Linux/Mac: python3 -m venv venv
+- Linux/Mac: python3 -m venv venv
 
-Activar el entorno virtual:
+**Activar el entorno virtual:**
 
-Windows: venv\Scripts\activate
+- Windows: venv\Scripts\activate
 
-Linux/Mac: source venv/bin/activate
+- Linux/Mac: source venv/bin/activate
 
-Instalar dependencias:
-
-Bash
+**Instalar dependencias:**
+```bash
 pip install -r requirements.txt
-Configurar credenciales:
+```
+**Configurar credenciales:**
 
 Crea el archivo de configuración a partir de la plantilla:
 
-Windows: copy .env.example .env
+- Windows: copy .env.example .env
 
-Linux/Mac: cp .env.example .env
+- Linux/Mac: cp .env.example .env
 
-Abre el archivo .env recién creado con tu editor favorito y completa los valores requeridos (OPENAI_API_KEY, GITHUB_TOKEN, etc.).
+- Abre el archivo .env recién creado con tu editor favorito y completa los valores requeridos (OPENAI_API_KEY, GITHUB_TOKEN, etc.).
 
-Ejecución
+
+**Ejecución**
 Para iniciar el asistente:
-
-Bash
+```bash
 python app.py
-(Escribe 'salir' en la terminal para finalizar la sesión).
+```
 
-Para visualizar el dashboard de observabilidad:
-
-Bash
+**Para visualizar el dashboard de observabilidad:**
+```bash
 streamlit run dashboard.py
+```
