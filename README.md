@@ -1,7 +1,7 @@
 Sistema de Orquestación y Soporte Corporativo - Cencosud (EV3)
 Este repositorio contiene la implementación de un sistema de orquestación jerárquica diseñado para automatizar y gestionar las consultas de los colaboradores sobre las normativas y reglamentos internos de Cencosud.
 
-El sistema utiliza una arquitectura basada en agentes de software especializados y procesamiento de lenguaje natural para recuperar información documental y asegurar respuestas precisas y apegadas a la legalidad de la empresa.
+El sistema utiliza una arquitectura basada en agentes de software especializados y procesamiento de lenguaje natural para recuperar información documental y asegurar respuestas precisas y apegadas a la legalidad de la empresa. Además, cuenta con métricas de rendimiento, observabilidad y trazabilidad integradas.
 
 Arquitectura del Sistema
 La solución está construida sobre el framework CrewAI, implementando un flujo de tipo Process.hierarchical para garantizar la correcta toma de decisiones y delegación de tareas automatizadas.
@@ -14,27 +14,33 @@ Especialista en Comunicaciones Internas: Módulo responsable del formato de sali
 
 Requisitos Previos
 Python 3.10 o superior.
-
 Git.
-
 Token de acceso (Fine-grained) con permisos de ejecución en repositorios y modelos.
 
 Instalación y Configuración
 Clonar el repositorio:
-git clone [https://github.com/SenkoGress/agente-cencosud-ev3.git](https://github.com/SenkoGress/agente-cencosud-ev3.git)
+git clone https://github.com/SenkoGress/agente-cencosud-ev3.git
 cd agente-cencosud-ev3
 
 Configurar el entorno:
-Para Windows: python -m venv venv y actívalo con venv\Scripts\activate.
-Para Linux/Mac: python3 -m venv venv y actívalo con source venv/bin/activate.
+Windows: python -m venv venv
+Linux/Mac: python3 -m venv venv
+Activar entorno Windows: venv\Scripts\activate
+Activar entorno Linux/Mac: source venv/bin/activate
 
 Instalar dependencias:
 pip install -r requirements.txt
 
 Configurar credenciales:
-Crea el archivo de configuración a partir de la plantilla. En Windows: copy .env.example .env. En Linux/Mac: cp .env.example .env. Abre el .env y completa las credenciales.
+Crea el archivo de configuración a partir de la plantilla.
+Windows: copy .env.example .env
+Linux/Mac: cp .env.example .env
+Abre el archivo .env recién creado con tu editor favorito y completa los valores requeridos (OPENAI_API_KEY, GITHUB_TOKEN, etc.).
 
 Ejecución
-Para iniciar el asistente: python app.py
+Para iniciar el asistente:
+python app.py
+(Escribe 'salir' en la terminal para finalizar la sesión).
 
-Para visualizar el dashboard: streamlit run dashboard.py
+Para visualizar el dashboard de observabilidad:
+streamlit run dashboard.py
